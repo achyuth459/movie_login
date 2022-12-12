@@ -1,0 +1,24 @@
+.App {
+    background-color: white;
+    color: white;
+    font-family: sans-serif;
+  }
+.fetch{
+  color: pink;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 25px;
+}
+.items{
+  color: black;
+  text-align: left;
+  border: 5px solid gray;
+  border-style: inset;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+
+
+
+  
