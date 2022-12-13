@@ -109,11 +109,6 @@ const Movie = () => {
       <div className="movie__heading">
         All rights reversed &copy; Cool-coders
       </div>
-      <div className="movie__production">
-        {currentMovieDetail &&
-          currentMovieDetail.production_companies &&
-          currentMovieDetail.production_companies.map((company) => <></>)}
-      </div>
     </div>
   );
 };

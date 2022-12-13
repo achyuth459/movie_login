@@ -36,7 +36,7 @@ class App extends Component {
               <Route exact path="/signup" element={<Signup />}></Route>
               <Route exact path="/login" element={<Login />}></Route>
               <Route exact path="/review" element={<Review />}></Route>
-              <Route exact path="/openreview" element={<API />}></Route>
+              <Route exact path="/openreview" element={<OpenReview />}></Route>
             </Routes>
           </StyledContainer>
         </div>
@@ -45,7 +45,7 @@ class App extends Component {
   }
 }
 
-function API() {
+function OpenReview() {
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
 
