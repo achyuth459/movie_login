@@ -1,5 +1,6 @@
 import axios from "axios";
 import { sessionService } from "redux-react-session";
+import { encode } from "base-64";
 
 export const loginUser = (
   credentials,
@@ -10,10 +11,16 @@ export const loginUser = (
   // make checks and get  some data
 
   return () => {
+    let base64 = require("base-64");
+
+    const username = "Amansai";
+    const password = "Amansai10@";
+
     axios
-      .post("http://localhost:8080/user/login", credentials, {
+      .post("http://13.113.111.68:8080/user/login", credentials, {
         headers: {
           "Content-Type": "application/json",
+          Authorization: "Basic " + base64.encode(username + ":" + password),
         },
       })
       .then((Response) => {
@@ -44,6 +51,7 @@ export const loginUser = (
                 })
                 .catch((err) => console.error(err));
             })
+
             .catch((err) => console.error(err));
         }
 
@@ -61,10 +69,16 @@ export const signupUser = (
   setFieldError
 ) => {
   return (dispatch) => {
+    let base64 = require("base-64");
+
+    const username = "Amansai";
+    const password = "Amansai10@";
     axios
-      .post("http://localhost:8080/api/save/UserDetails", credentials, {
+      .post("http://13.113.111.68:8080/api/save/UserDetails", credentials, {
         headers: {
           "Content-Type": "application/json",
+          Authorization: "Basic " + base64.encode(username + ":" + password),
+          // "Access-Control-Allow-Origin": "*",
         },
       })
       .then((response) => {
@@ -126,10 +140,16 @@ export const reviewUser = (
   setFieldError
 ) => {
   return () => {
+    let base64 = require("base-64");
+
+    const username = "Amansai";
+    const password = "Amansai10@";
     axios
-      .post("http://localhost:8080/api/save/ReviewDetails", credentials, {
+      .post("http://13.113.111.68:8080/api/save/ReviewDetails", {
         headers: {
           "Content-Type": "application/json",
+          Authorization: "Basic " + base64.encode(username + ":" + password),
+          "Access-Control-Allow-Origin": "*",
         },
       })
       .then((response) => {
@@ -141,7 +161,7 @@ export const reviewUser = (
           // checking for specific errors
           if (message.includes("movie_ratings")) {
             setFieldError("movie_ratings", message);
-          } else if (message.includes("emmovie_reviewsail")) {
+          } else if (message.includes("movie_reviews")) {
             setFieldError("movie_reviews", message);
           } else if (message.includes("content")) {
             setFieldError("content", message);

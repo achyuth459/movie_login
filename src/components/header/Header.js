@@ -1,9 +1,8 @@
 import React from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
-import { StyledFromArea, StyledTitle } from "../Styles";
 
-const Header = ({ user }) => {
+const Header = ({}) => {
   return (
     <div className="header">
       <div className="headerLeft">

@@ -54,7 +54,7 @@ const Login = ({ loginUser }) => {
               .required("Required"),
             password: Yup.string()
               .min(8, "Password is too short")
-              .max(30, "Password is too long")
+              .max(20, "Password is too long")
               .required("Required"),
           })}
           onSubmit={(values, { setSubmitting, setFieldError }) => {

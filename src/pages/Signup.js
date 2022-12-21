@@ -37,6 +37,7 @@ import { message } from "antd";
 import { connect } from "react-redux";
 import { signupUser } from "../auth/actions/userActions";
 import { useNavigate } from "react-router-dom";
+import { Radio } from "react-loader-spinner";
 
 const Signup = ({ signupUser }) => {
   const navigate = useNavigate();
@@ -56,7 +57,6 @@ const Signup = ({ signupUser }) => {
             last_name: "",
             gender: "",
             contact_number: "",
-            user_name: "",
             age: "",
           }}
           validationSchema={Yup.object({
@@ -69,7 +69,6 @@ const Signup = ({ signupUser }) => {
               .required("Required"),
             first_name: Yup.string().required("Required"),
             last_name: Yup.string().required("Required"),
-            user_name: Yup.string().required("Required"),
             gender: Yup.string().required("Required"),
             age: Yup.number().required("Required"),
             contact_number: Yup.number().required("Required"),
@@ -88,14 +87,14 @@ const Signup = ({ signupUser }) => {
                 name="first_name"
                 type="text"
                 label="First Name"
-                placeholder="abc"
+                placeholder="First Name"
                 icon={<FiUser />}
               />
               <TextInput
                 name="last_name"
                 type="text"
                 label="Last Name"
-                placeholder="def"
+                placeholder="Last Name"
                 icon={<FiUser />}
               />
               <TextInput
@@ -123,14 +122,8 @@ const Signup = ({ signupUser }) => {
                 name="age"
                 type="number"
                 label="Age"
+                placeholder="Age"
                 icon={<FiCalendar />}
-              />
-              <TextInput
-                name="user_name"
-                type="text"
-                label="User Name "
-                placeholder="User Name"
-                icon={<FiUsers />}
               />
               <TextInput
                 name="password"
@@ -147,9 +140,7 @@ const Signup = ({ signupUser }) => {
                 icon={<FiLock />}
               />
               <ButtonGroup>
-                <StyledFormButton type="submit">
-                  <Link to="/">Submit</Link>
-                </StyledFormButton>
+                <StyledFormButton type="submit">Submit</StyledFormButton>
               </ButtonGroup>
             </Form>
           )}

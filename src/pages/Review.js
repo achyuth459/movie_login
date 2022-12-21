@@ -47,12 +47,12 @@ const Review = ({ reviewUser }) => {
           initialValues={{
             movie_ratings: "",
             movie_reviews: "",
-            movie_name: "",
+            content: "",
           }}
           validationSchema={Yup.object({
             movie_ratings: Yup.string().required("Required"),
             movie_reviews: Yup.string().required("Required"),
-            movie_name: Yup.string().required("Required"),
+            content: Yup.string().required("Required"),
           })}
           onSubmit={(values, { setSubmitting, setFieldError }) => {
             reviewUser(values, navigate, setFieldError, setSubmitting);
@@ -62,9 +62,9 @@ const Review = ({ reviewUser }) => {
           {(isSubmitting) => (
             <Form>
               <TextInput
-                name="movie_name"
+                name="content"
                 type="text"
-                label="Movie Name"
+                label="content"
                 placeholder="Enter Movie Name"
                 icon={<BiMoviePlay />}
               />
